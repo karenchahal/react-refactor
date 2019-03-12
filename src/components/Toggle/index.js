@@ -1,33 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 
-import "./Toggle.css";
+import css from "./Toggle.module.css";
 
-class Toggle extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isOn: false
-    };
-  }
-
-  handleClick = () => {
-    this.setState(state => ({
-      isOn: !state.isOn
-    }));
-  };
-
-  render() {
-    const { isOn } = this.state;
-    return (
-      <div
-        className={`container ${isOn ? "active" : ""}`}
-        onClick={this.handleClick}
-      >
-        <div className="switch" />
-      </div>
-    );
-  }
-}
+const Toggle = props => {
+  const { position } = props;
+  return (
+    <div
+      className={`${css.container} ${position ? css.active : ""}`}
+      onClick={props.onClick}
+    >
+      <div className={css.switch} />
+    </div>
+  );
+};
 
 export default Toggle;

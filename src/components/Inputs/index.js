@@ -11,6 +11,14 @@ class Inputs extends React.Component {
     };
   }
 
+  handleInputChange = event => {
+    console.log({ object: event.target });
+    const { name, value } = event.target;
+    this.setState(() => ({
+      [name]: value
+    }));
+  };
+
   handleUsernameChange = event => {
     const { value } = event.target;
     this.setState(() => ({
@@ -46,28 +54,28 @@ class Inputs extends React.Component {
           name="username"
           placeholder="username"
           value={this.state.username}
-          onChange={this.handleUsernameChange}
+          onChange={this.handleInputChange}
           type="text"
         />
         <input
           name="email"
           placeholder="email"
           value={this.state.email}
-          onChange={this.handleEmailChange}
+          onChange={this.handleInputChange}
           type="text"
         />
         <input
           name="password"
           placeholder="password"
           value={this.state.password}
-          onChange={this.handlePasswordChange}
+          onChange={this.handleInputChange}
           type="text"
         />
         <input
           name="confirmPassword"
           placeholder="confirmPassword"
           value={this.state.confirmPassword}
-          onChange={this.handleConfirmPasswordChange}
+          onChange={this.handleInputChange}
           type="text"
         />
       </form>

@@ -6,6 +6,18 @@ import Toggle from "../Toggle";
 import Inputs from "../Inputs";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isOn: false
+    };
+  }
+  handleClick = () => {
+    this.setState(state => ({
+      isOn: !state.isOn
+    }));
+  };
   render() {
     return (
       <div className="App">
@@ -24,8 +36,10 @@ class App extends Component {
           </a>
           {/* 1 */}
 
-          <Toggle />
-          <Toggle />
+          <Toggle position={this.state.isOn} onClick={this.handleClick} />
+          <Toggle position={!this.state.isOn} onClick={this.handleClick} />
+          <Toggle position={this.state.isOn} onClick={this.handleClick} />
+          <Toggle position={!this.state.isOn} onClick={this.handleClick} />
 
           {/* 2 */}
 
